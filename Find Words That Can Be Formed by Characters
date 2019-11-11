@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int countCharacters(vector<string>& w, string c) {
+        map<char,int>m,ma;
+        int i,k,j,ans=0;
+        char jj;
+        for(i=0;i<c.length();i++)
+        {
+            m[c[i]]++;
+        }
+        for(i=0;i<w.size();i++)
+        {
+            
+            for(j=0;j<w[i].size();j++)
+            {
+                ma[w[i][j]]++;
+                    
+            }
+            k=1;
+            for(jj='a';jj<='z';jj++)
+            {
+                if(ma[jj]>m[jj])
+                {
+                    k=0;
+                    break;
+                }
+                    
+            }
+            if(k==1)
+                ans+=w[i].size();
+            ma.clear();
+            
+            
+        }
+        return ans;
+        
+    }
+    
+};
