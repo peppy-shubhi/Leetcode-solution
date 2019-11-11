@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int rotatedDigits(int n) {
+        queue<int>q;
+        
+        q.push(1);             
+
+        q.push(2);
+        q.push(5);
+        q.push(6);
+        q.push(8);
+        q.push(9);
+        int ans=0,x,z,j;
+        
+        while(1)
+        {
+            
+            z=q.front();
+            if(z>n)
+            break;
+            x=z;
+            j=0;
+            while(x)
+            {
+                if(x%10!=0&&x%10!=1&&x%10!=8)
+                {
+                j=1;
+                break;
+                }
+                x/=10;
+            }
+            if(j==1)
+                ans++;
+            q.push(z*10+0);
+            q.push(z*10+1);
+            q.push(z*10+2);
+            q.push(z*10+5);
+            q.push(z*10+6);
+            q.push(z*10+8);
+            q.push(z*10+9);
+               q.pop(); 
+            
+        }
+        return ans;
+        
+    }
+};
