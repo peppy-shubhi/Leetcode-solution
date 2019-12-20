@@ -1,0 +1,34 @@
+class Solution {
+public:
+    void rotate(vector<vector<int>>& v) {
+        int j,k,i,tmp,l,r,n;
+        n=v.size();
+        for(i=0;i<n;i++)
+        {
+            l=0;
+            r=n-1;
+            while(l<=r)
+            {
+                tmp=v[l][i];
+                v[l][i]=v[r][i];
+                v[r][i]=tmp;
+                l++;
+                r--;
+            }
+        }
+        k=0;
+        for(i=0;i<n;i++)
+        {
+            
+            for(j=k;j<n;j++)
+            {
+                tmp=v[i][j];
+                v[i][j]=v[j][i];
+                v[j][i]=tmp;
+            }
+            k++;
+        }
+        
+        
+    }
+};
